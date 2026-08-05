@@ -10,7 +10,7 @@ function Select({
     const id = useId()
     return (
         <div>
-            {label && <label htmlFor={id}>{label}</label>}
+            {label && <label className="font-semibold text-primary-dark text-md mr-1" htmlFor={id}>{label}</label>}
             <select
             className={`${className}`}
             {...props}

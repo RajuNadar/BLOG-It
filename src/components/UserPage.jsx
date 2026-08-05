@@ -14,7 +14,7 @@ function UserPage() {
   const [posts, setPosts] = useState([])
   const dispatch = useDispatch()
   const [userDataLoading, setUserDataLoading] = useState(!userData)
-  console.log("user data", userData.$id);
+  // console.log("user data", userData?.$id);
 
   useEffect(() => {
     if (userData) return;
@@ -22,7 +22,7 @@ function UserPage() {
     const fetchUser = async () => {
       try {
         setUserDataLoading(true)
-        const user = authSevice.getCurrentUser()
+        const user = await authSevice.getCurrentUser()
         if (user) {
           dispatch(login({ userData: user }))
         }
@@ -37,17 +37,17 @@ function UserPage() {
 
   useEffect(() => {
     if (!userData?.$id) return;
-
-    try {
-      blogServices.listPost([Query.equal("userId", userData.$id)])
-        .then((posts) => {
-          if (posts) {
-            setPosts(posts.documents)
-          }
-        })
+    const fetchUserPost = async () => {
+      try {
+      const userPosts = await blogServices.listPost([Query.equal('userId', userData.$id)])
+      if (userPosts) {
+        setPosts(userPosts.documents)
+      }
     } catch (error) {
       console.error("Failed to fetch posts:", error)
     }
+    }
+    fetchUserPost()
   }, [userData])
 
   console.log("all post in userPage", posts);
@@ -60,7 +60,6 @@ function UserPage() {
     );
   }
 
-  // If loading is done but no user data was ever found
   if (!userData) {
     return (
       <div className="max-w-5xl mx-auto my-5 p-5 text-center text-red-500">
@@ -94,21 +93,21 @@ function UserPage() {
       <div className="bg-base-surface w-5xl h-[70%] mx-auto overflow-y-auto [&::-webkit-scrollbar]:hidden border border-base-border rounded-2xl p-6">
         <h2 className="text-center font-mono text-lg">Your Posts</h2>
         <div className="w-full h-full flex flex-wrap gap-x-7 space-y-5 pt-3 overflow-y-auto [&::-webkit-scrollbar]:hidden">
-            {posts.length === 0 ? (
-              <div className='h-full w-full flex items-center justify-center'>
-                <h2 className='text-primary-dark text-xl font-semibold'>You haven't posted anything yet.</h2>
-              </div>
-            ) : posts.map((post) => (
-              <div
-                key={post.$id}
-                className='w-55 h-65 rounded-xl bg-base-main border shadow-sm border-base-border'>
-                <PostCard
-                  $id={post.$id}
-                  title={post.title}
-                  featuredImage={post.featuredImage}
-                />
-              </div>
-            ))}
+          {posts.length === 0 ? (
+            <div className='h-full w-full flex items-center justify-center'>
+              <h2 className='text-primary-dark text-xl font-semibold'>You haven't posted anything yet.</h2>
+            </div>
+          ) : posts.map((post) => (
+            <div
+              key={post.$id}
+              className='w-55 h-65 rounded-xl bg-base-main border shadow-sm border-base-border'>
+              <PostCard
+                $id={post.$id}
+                title={post.title}
+                featuredImage={post.featuredImage}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

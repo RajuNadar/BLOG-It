@@ -85,7 +85,7 @@ export default function PostForm({ post }) {
                     <Input
                         label="Your Post Title"
                         placeholder="Enter Title"
-                        className="border-2 text-primary-text border-base-border p-2 rounded-xl bg-base-main    "
+                        className="border-2 text-primary-text  border-base-border p-2 rounded-xl bg-base-main    "
                         {...register("title", {
                             required: true
                         })}
@@ -112,6 +112,7 @@ export default function PostForm({ post }) {
                     />
                 </div>
                 <div className="w-1/3 px-2">
+                    
                     <div>
                         <Input
                             label="Featured Image"
@@ -123,11 +124,11 @@ export default function PostForm({ post }) {
                         />
                         <p className="text-sm">{post?.featuredImage ? '*Update or change your current post image (optional).' : '*you can also add a image to your post (optional)'}</p>
                         {post?.featuredImage && (
-                            <div className="w-full my-4">
+                            <div className="w-full h-100 mt-4">
                                 <img
                                     src={uploadServices.getFilePreview(post.featuredImage)}
                                     alt={post?.title}
-                                    className="rounded-lg w-[80%] h-100 object-fit"
+                                    className="rounded-lg w-full max-h-full object-fit"
                                 />
                             </div>
                         )}
@@ -136,7 +137,7 @@ export default function PostForm({ post }) {
                     <Select
                         options={["Active", "Inactive"]}
                         label="Status :"
-                        className="my-5"
+                        className="mb-3 text-md font-light cursor-pointer"
                         {...register("status", { required: true })}
                     />
                     <Button
@@ -145,7 +146,9 @@ export default function PostForm({ post }) {
                     </Button>
                     <Link
                         to={"/all-posts"}
-                        className={`ml-3 bg-accent text-base-main px-4 py-2 rounded-lg hover:bg-accent-hover transition-all font-semibold ${post ? 'bg-red-500 hover:bg-red-400' : ''}`}>{post ? 'Discard Changes' : 'Go Back'}</Link>
+                        className={`ml-3 bg-accent text-base-main px-4 py-2 rounded-lg hover:bg-accent-hover transition-all font-semibold ${post ? 'bg-red-500 hover:bg-red-400' : ''}`}>{post ? 'Discard Changes' : 'Go Back'}
+                    </Link>
+
                 </div>
             </div>
         </form>
