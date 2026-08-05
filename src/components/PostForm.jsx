@@ -79,7 +79,7 @@ export default function PostForm({ post }) {
 
     return (
         <form className="border-2 max-w-7xl mx-auto h-full border-base-border bg-base-surface p-5 my-5 rounded-2xl " onSubmit={handleSubmit(submit)}>
-            <h2 className="text-center text-lg font-bold underline mb-3">{post ? 'Your Editing a Post' : 'Your Adding a Post'}</h2>
+            <h2 className="text-center text-lg font-bold underline mb-3">{post ? 'Your Editing a Post' : 'Create a New Post'}</h2>
             <div className="w-full h-full flex flex-wrap">
                 <div className="w-2/3 min-h-full px-2 space-y-6">
                     <Input

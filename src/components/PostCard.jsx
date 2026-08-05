@@ -11,7 +11,7 @@ function PostCard({ $id, title, featuredImage }) {
                         <img
                             src={uploadServices.getFilePreview(featuredImage)}
                             alt={title}
-                            className='w-full h-full border-4 border-base-border rounded-md object-cover object-bottom'
+                            className='w-full h-full border-4 border-base-border rounded-md object-cover object-top'
                         />
                     </div>
                 )}
