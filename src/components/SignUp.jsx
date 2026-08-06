@@ -16,10 +16,10 @@ function SignUp() {
         setError("")
         try {
             const session = await authSevice.createAccount(data)
-            console.log("session", session);
+            // console.log("session", session);
             if (session) {
                 const userData = await authSevice.getCurrentUser()
-                console.log('userData', userData);
+                // console.log('userData', userData);
                 if (userData) {
                     dispatch(login(userData))
                     navigate("")
@@ -31,7 +31,7 @@ function SignUp() {
     }
 
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="h-full w-full flex items-center justify-center">
             <div className="w-full max-w-md bg-base-surface border border-base-border shadow-lg rounded-2xl p-8">
                 <div className="text-center mb-6">
                     <h1 className="text-2xl font-bold text-primary-text mb-2">

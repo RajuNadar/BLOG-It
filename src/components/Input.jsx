@@ -11,7 +11,7 @@ const Input = forwardRef(function Input({
         <div className="flex flex-col gap-1">
             {label &&
                 <label
-                    className="font-semibold text-primary-dark text-md"
+                    className="font-semibold text-primary-dark text-sm lg:text-md"
                     htmlFor={id}>
                     {label}
                 </label>

@@ -8,7 +8,7 @@ import { PostForm } from '../components/index'
 function EditPost() {
     const [post, setPost] = useState(null)
     const { slug } = useParams()
-    console.log("slug", slug);
+    // console.log("slug", slug);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function EditPost() {
                     setPost(post)
                 }
             })
-            console.log("postttt", post);
+            // console.log("postttt", post);
         } else {
             navigate("/")
         }

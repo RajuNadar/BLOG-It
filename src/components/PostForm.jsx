@@ -18,7 +18,7 @@ export default function PostForm({ post }) {
     })
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
-    console.log("userr datta", userData);
+    // console.log("userr datta", userData);
 
     const submit = async (data) => {
         if (post) {
@@ -32,7 +32,7 @@ export default function PostForm({ post }) {
                 ...data,
                 featuredImage: file ? file.$id : post.featuredImage,
             })
-            console.log("dbPost", dbPost);
+            // console.log("dbPost", dbPost);
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`)
             }
@@ -80,12 +80,12 @@ export default function PostForm({ post }) {
     return (
         <form className="border-2 max-w-7xl mx-auto h-full border-base-border bg-base-surface p-5 my-5 rounded-2xl " onSubmit={handleSubmit(submit)}>
             <h2 className="text-center text-lg font-bold underline mb-3">{post ? 'Your Editing a Post' : 'Create a New Post'}</h2>
-            <div className="w-full h-full flex flex-wrap">
-                <div className="w-2/3 min-h-full px-2 space-y-6">
+            <div className="w-full h-full lg:flex flex-wrap">
+                <div className="lg:w-2/3 px-2 space-y-3 lg:space-y-6">
                     <Input
                         label="Your Post Title"
                         placeholder="Enter Title"
-                        className="border-2 text-primary-text  border-base-border p-2 rounded-xl bg-base-main    "
+                        className="border-2 text-primary-text border-base-border p-2 rounded-xl bg-base-main    "
                         {...register("title", {
                             required: true
                         })}
@@ -111,8 +111,7 @@ export default function PostForm({ post }) {
                         defaultValue={getValues("content")}
                     />
                 </div>
-                <div className="w-1/3 px-2">
-                    
+                <div className="lg:w-1/3 px-2 py-3 lg:py-0">
                     <div>
                         <Input
                             label="Featured Image"
@@ -137,18 +136,23 @@ export default function PostForm({ post }) {
                     <Select
                         options={["Active", "Inactive"]}
                         label="Status :"
-                        className="mb-3 text-md font-light cursor-pointer"
+                        className="my-5 text-md font-light cursor-pointer"
                         {...register("status", { required: true })}
                     />
-                    <Button
-                        type="submit">
-                        {post ? "Update" : "Add Post"}
-                    </Button>
-                    <Link
-                        to={"/all-posts"}
-                        className={`ml-3 bg-accent text-base-main px-4 py-2 rounded-lg hover:bg-accent-hover transition-all font-semibold ${post ? 'bg-red-500 hover:bg-red-400' : ''}`}>{post ? 'Discard Changes' : 'Go Back'}
-                    </Link>
+                    <div>
+                        <Button
+                            type="submit"
+                            className="lg:px-3 lg:py-2"
+                        >{post ? "Update" : "Add Post"}
+                        </Button>
+                        <Button className={`ml-3 ${post ? 'bg-red-500 hover:bg-red-400' : ''}`}>
+                            <Link
+                                to={"/all-posts"}
+                            >{post ? 'Discard Changes' : 'Go Back'}
+                            </Link>
+                        </Button>
 
+                    </div>
                 </div>
             </div>
         </form>

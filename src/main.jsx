@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { Home, Signup, Login, EditPost, Post, AllPost, AddPost, User } from './pages/index.js'
-import { NotFound, ErrorPage , Protected } from './components/index.js'
+import { NotFound, ErrorPage, Protected } from './components/index.js'
 import store from "./store/store.js"
 import App from './App.jsx'
 
@@ -60,7 +60,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/post/:slug',
-        element: <Post />
+        element:
+          <Protected>
+            <Post />
+          </Protected>
       },
       {
         path: '*',

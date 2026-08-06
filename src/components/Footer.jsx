@@ -19,12 +19,12 @@ const Footer = () => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer className="relative w-full rounded-t-2xl py-4 overflow-hidden bg-primary-dark">
+    <footer className="relative w-full rounded-t-2xl py-3 lg:py-6 bg-primary-dark">
       <div className="max-w-full flex flex-col items-center text-center space-y-8">
-        <h2 className="text-3xl font-bold text-base-main">
+        <h2 className="lg:text-3xl text-xl font-bold text-base-main">
           BLOG-It
         </h2>
-        <nav className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm font-semibold uppercase tracking-widest">
+        <nav className="flex flex-wrap justify-center lg:gap-x-12 gap-x-6 lg:text-lg text-xs font-semibold uppercase tracking-widest">
           {NAV_LINKS.map((link) => (
             <Link 
               key={link.label}
@@ -36,24 +36,24 @@ const Footer = () => {
           ))}
         </nav>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4 lg:space-x-6 text-xs lg:text-lg">
           {SOCIAL_LINKS.map((item, index) => (
-            <React.Fragment key={item}>
+            <React.Fragment key={index}>
               <a 
                 href={item.to}
                 className={` ${LINK_CLASSES}`}
               >
                 {item.label}
               </a>
-              {index < 1 && <span className="w-1 h-1 bg-slate-200 rounded-full" />}
+              {index < 1 && <span className="w-1 h-1 bg-base-main rounded-full" />}
             </React.Fragment>
           ))}
         </div>
 
-        <div className="w-full flex flex-col items-center space-y-4">
-          <div className="w-12 h-0.5 bg-slate-100 rounded-full" />
-          <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-300">
-            © {currentYear} — BLOG-It — Write. Share. Inspire.
+        <div className="w-full flex flex-col items-center space-y-2 lg:space-y-4">
+          <div className="w-12 h-0.5 bg-base-main rounded-full" />
+          <div className="lg:text-sm text-xs font-bold uppercase tracking-widest lg:tracking-[0.3em] text-base-main">
+            © {currentYear} — BLOG-It — Write. Share. Inspire
           </div>
         </div>
       </div>

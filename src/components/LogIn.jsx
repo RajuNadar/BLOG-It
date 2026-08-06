@@ -29,7 +29,7 @@ function LogIn() {
     }
 
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center">
             <div className="w-full max-w-md bg-base-surface border border-base-border shadow-lg rounded-2xl p-8">
                 <div className="text-center mb-6">
                     <h1 className="text-2xl font-bold text-primary-text mb-2">

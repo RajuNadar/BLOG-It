@@ -13,7 +13,7 @@ function Post() {
 
     const userData = useSelector((state) => state.auth.userData)
     const isAuther = post && userData ? post.userId === userData.$id : false
-    console.log("userDAta", userData);
+    // console.log("userDAta", userData);
 
     useEffect(() => {
         if (slug) {
@@ -25,7 +25,7 @@ function Post() {
         } else navigate("/")
     }, [slug, navigate])
 
-    // console.log("poooost", post.featuredImage);
+    // console.log("poooost", post);
 
     const deletePost = () => {
         blogServices.deletePost(post.$id)
@@ -39,30 +39,29 @@ function Post() {
     return post ? (
         <div className='max-w-7xl h-[85%] overflow-y-auto mx-auto border border-base-border p-5 my-5 bg-base-surface rounded-2xl'>
             <div className='flex justify-between items-center mb-5'>
-                <Button className='w-25'><Link to={'/all-posts'}>Go Back</Link></Button>
+                <Button><Link to={'/all-posts'}>Go Back</Link></Button>
                 {isAuther && (
                     <div className='flex justify-center gap-5'>
-                        <Link to={`/edit-post/${post.$id}`}>
-                            <Button className='w-20'>Edit</Button>
-                        </Link>
-                        <Button className='w-20 bg-red-500 hover:bg-red-400' onClick={deletePost}>Delete</Button>
+                        <Button><Link to={`/edit-post/${post.$id}`}>Edit</Link></Button>
+                        <Button className=' bg-red-500 hover:bg-red-400' onClick={deletePost}>Delete</Button>
                     </div>
                 )}
             </div>
-            <div className='flex flex-col h-'>
+            <div className='flex flex-col h-full'>
                 <div className='flex flex-col gap-3 items-center justify-center'>
                     {post?.featuredImage && (
                         <img
                             src={uploadServices.getFilePreview(post.featuredImage)}
-                            alt={post?.title}
-                            className='w-[30%] rounded-lg border'
+                            alt={post.title}
+                            className='lg:w-[30%] rounded-lg border'
                         />
                     )}
                     <div>
-                        <h1 className='text-primary-dark text-lg font-semibold underline'>{post.title}</h1>
+                        <h1 className='text-primary-dark text-center lg:text-lg text-md font-semibold underline'>{post.title}</h1>
                     </div>
+                    {/* <p>Published by: {userData.name}</p> */}
                 </div>
-                <div className='bg-base-main p-3 rounded-2xl mt-5 text-primary-muted'>
+                <div className='bg-base-main p-5 lg:text-lg text-md rounded-2xl mt-5 text-primary-muted'>
                     <div>
                         {parse(post.content)}
                     </div>

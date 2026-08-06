@@ -2,7 +2,7 @@ import React from 'react'
 import { LogIn } from '../components/index'
 function Login() {
   return (
-    <div>
+    <div className='w-full h-full'>
       <LogIn />
     </div>
   )

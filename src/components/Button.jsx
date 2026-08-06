@@ -12,7 +12,7 @@ function Button({
 }) {
   return (
     <button
-    className={`px-4 py-2 cursor-pointer font-semibold rounded-lg transition duration-300 ${className} ${bgColor} ${textColor} ${bgHover}`}
+    className={`active:translate-y-2 lg:px-3 lg:py-2 py-1 shadow-xl px-2 cursor-pointer font-semibold rounded-lg transition duration-300 ${className} ${bgColor} ${textColor} ${bgHover}`}
     {...props}
     >{children}</button>
   )

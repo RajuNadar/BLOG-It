@@ -3,7 +3,7 @@ import { PostForm } from '../components/index'
 
 function AddPost() {
   return (
-    <div className='h-screen'>
+    <div className='w-full h-full'>
         <PostForm />
     </div>
   )
