@@ -2,7 +2,9 @@ import UserPage from '../components/UserPage'
 
 function User() {
   return (
-    <UserPage />
+    <div className='w-full h-full'>
+      <UserPage />
+    </div>
   )
 }
 

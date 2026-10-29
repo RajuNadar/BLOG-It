@@ -29,7 +29,7 @@ function AllPosts() {
             <span className='my-5 text-primary-dark text-md border-b'>There are {posts.length} available posts</span>
             <div className='w-full h-full flex justify-center flex-wrap gap-x-7 space-y-5 pt-3 overflow-y-auto [&::-webkit-scrollbar]:hidden'>
                 {posts.length === 0 ? (
-                    <div className='h-full w-full flex items-center justify-center'>
+                    <div className='h-full w-screen flex items-center justify-center'>
                         <h2 className='text-primary-dark lg:text-2xl text-md font-bold'>There Are No Posts </h2>
                     </div>
                 ) : posts.map((post) => (

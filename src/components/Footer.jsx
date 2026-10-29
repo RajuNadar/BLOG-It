@@ -13,15 +13,15 @@ const SOCIAL_LINKS = [
   {to: 'https://www.instagram.com/sahil7.dz/?next=%2F', label: 'Instagram'},
 ];
 
-const LINK_CLASSES = "transition-all duration-300 font-medium bg-linear-to-br from-base-main via-accent to-base-main bg-clip-text text-transparent hover:text-accent hover:scale-110";
+const LINK_CLASSES = "transition-all duration-300 font-medium bg-linear-to-br from-primary-dark via-accent to-primary-dark bg-clip-text text-transparent hover:text-accent hover:scale-110";
 
 const Footer = () => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer className="relative w-full rounded-t-2xl py-3 lg:py-6 bg-primary-dark">
-      <div className="max-w-full flex flex-col items-center text-center space-y-8">
-        <h2 className="lg:text-3xl text-xl font-bold text-base-main">
+    <footer className="relative w-full rounded-t-2xl py-3 lg:py-6 bg-base-footer border-t border-base-border">
+      <div className="max-w-full flex flex-col items-center text-center space-y-12">
+        <h2 className="lg:text-3xl text-xl font-bold text-primary-text">
           BLOG-It
         </h2>
         <nav className="flex flex-wrap justify-center lg:gap-x-12 gap-x-6 lg:text-lg text-xs font-semibold uppercase tracking-widest">
@@ -52,7 +52,7 @@ const Footer = () => {
 
         <div className="w-full flex flex-col items-center space-y-2 lg:space-y-4">
           <div className="w-12 h-0.5 bg-base-main rounded-full" />
-          <div className="lg:text-sm text-xs font-bold uppercase tracking-widest lg:tracking-[0.3em] text-base-main">
+          <div className="lg:text-sm text-xs font-bold uppercase tracking-widest lg:tracking-[0.3em] text-primary-text">
             © {currentYear} — BLOG-It — Write. Share. Inspire
           </div>
         </div>

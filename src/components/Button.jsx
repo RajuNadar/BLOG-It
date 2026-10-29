@@ -1,9 +1,7 @@
-import React from 'react'
-
 function Button({
     children,
     // children is only a text that have passed to this compponent
-    type = "botton",
+    type = "button",
     bgHover = "hover:bg-accent-hover",
     bgColor = "bg-accent",
     textColor = "text-white",
@@ -12,7 +10,7 @@ function Button({
 }) {
   return (
     <button
-    className={`active:translate-y-2 lg:px-3 lg:py-2 py-1 shadow-xl px-2 cursor-pointer font-semibold rounded-lg transition duration-300 ${className} ${bgColor} ${textColor} ${bgHover}`}
+    className={`active:translate-y-2 lg:px-3 lg:py-2 py-1 px-2 cursor-pointer font-semibold rounded-lg transition duration-300 ${bgColor} ${textColor} ${bgHover} ${className}`}
     {...props}
     >{children}</button>
   )

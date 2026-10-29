@@ -8,7 +8,7 @@ function Home() {
     // console.log("user status", userStatus);
 
     return (
-        <div className="h-screen flex items-center justify-center px-4">
+        <div className="w-full h-[80vh] flex items-center justify-center px-4">
             <div className="max-w-xl mx-auto bg-base-surface shadow-lg rounded-3xl p-10 text-center border border-base-border">
                 <div className="mb-6">
                     <span className="inline-block px-6 py-2 rounded-3xl bg-base-main text-primary-text font-bold text-lg border border-base-border">
@@ -23,7 +23,7 @@ function Home() {
                         <Button className='min-1/2 px-5 py-2'>Go to posts section</Button>
                     </NavLink>
 
-                    : <span className="text-xl font-bold text-gray-800 mb-4">
+                    : <span className="text-xl font-bold text-primary-text mb-4">
                         To Read Posts <NavLink className="text-accent hover:underline hover:text-accent-hover" to='/log-in'>Login</NavLink>
                     </span>}
             </div>

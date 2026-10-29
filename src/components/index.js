@@ -13,6 +13,7 @@ import RTE from "./RTE";
 import PostForm from "./PostForm";
 import UserPage from "./UserPage";
 import ErrorPage from "./ErrorPage";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 export {
     Protected,
@@ -29,5 +30,6 @@ export {
     RTE,
     Select,
     SignUp,
+    ThemeToggleBtn,
     UserPage,
 }

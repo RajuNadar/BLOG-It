@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { Button, LogoutBtn } from "./index"
+import { Button, LogoutBtn, ThemeToggleBtn } from "./index"
 import { useState } from "react"
 import authSevice from "../services/auth"
 import { logout } from "../features/authSlice"
@@ -29,28 +29,29 @@ function Navbar() {
   ]
 
   return (
-    <header className="w-full px-10 lg:px-30 py-3 shadow-md bg-base-surface sticky top-0 z-50">
-      <nav className="flex items-center justify-between">
+    <header className="w-full px-10 lg:px-30 py-3 shadow-md bg-base-surface border border-base-border sticky top-0 z-50">
+      <nav className="flex items-center justify-between py-2">
         <NavLink to="/">
           <span className="text-2xl font-bold text-accent">
             BLOG-It
           </span>
         </NavLink>
 
-        <ul className="hidden lg:flex items-center gap-2">
+        <ul className="hidden lg:flex items-center gap-10">
           {navLinks.map(
             (link) =>
               link.active && (
-                <li key={link.name}>
+                <li key={link.name} className="relative">
                   <NavLink
                     to={link.path}
-                    className={({ isActive }) => isActive ? 'inline-block text-lg px-4 py-2 font-light text-accent ' : 'inline-block text-lg px-4 py-2 duration-200 font-light hover:text-accent'}
+                    className={({ isActive }) => isActive ? 'inline-block text-lg font-light text-accent underline underline-offset-4' : 'inline-block text-lg duration-200 font-light hover:text-accent'}
                   >
                     {link.name}
                   </NavLink>
                 </li>
               )
-          )}
+            )}
+            <ThemeToggleBtn />
         </ul>
 
         <button
@@ -108,7 +109,8 @@ function Navbar() {
                   </NavLink>
                 </li>
               )
-          )}
+            )}
+            <ThemeToggleBtn className=""/>
           {authStatus && <li onClick={logoutHandler} className="font-mono text-md lg:px-3 py-1 px-2 lg:py-2 duration-300 bg-red-100 hover:bg-red-200 rounded-full  text-red-600 text-center">Logout</li>}
           
         </ul>

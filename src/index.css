@@ -1,14 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-    --color-base-main: #FFFFFF;
-    --color-base-surface: #F8FAFC;
-    --color-base-border: #E2E8F0;
+    /* Light Theme — Blue & Slate */
 
-    --color-primary-text: #1E293B;
+    /* Backgrounds */
+    --color-base-main: #F5F7FB;
+    --color-base-surface: #FFFFFF;
+    --color-base-border: #D8E0EC;
+
+    /* Typography */
+    --color-primary-text: #172033;
     --color-primary-muted: #64748B;
-    --color-primary-dark: #0F172A;
+    --color-primary-dark: #0B1220;
 
-    --color-accent: #0EA5E9;
-    --color-accent-hover: #0284C7;
+    /* Accent */
+    --color-accent: #2563EB;
+    --color-accent-hover: #1D4ED8;
+
+    /* Component Backgrounds */
+    --color-base-footer: #EAF0F8;
+    --color-post-card: #FFFFFF;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+    /* Main Backgrounds */
+    --color-base-main: #0B1120;
+    --color-base-surface: #111C2E;
+    --color-base-border: #263449;
+
+    /* Typography */
+    --color-primary-text: #E6EDF3;
+    --color-primary-muted: #94A3B8;
+    --color-primary-dark: #FFFFFF;
+
+    /* Accent */
+    --color-accent: #58A6FF;
+    --color-accent-hover: #79C0FF;
+
+    /* Component Backgrounds */
+    --color-base-footer: #0D1524;
+    --color-post-card: #0D1421;
 }
